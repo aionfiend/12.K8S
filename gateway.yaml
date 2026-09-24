@@ -1,12 +1,12 @@
-apiVersion: networking.istio.io/v1alpha3
-kind: Gateway
+apiVersion: networking.istio.io/v1alpha3 # версия API, используемая сервис-мешем Istio
+kind: Gateway # тип объекта Istio, отвечающий за конфигурацию портов на внешнем контуре
 metadata:
   name: nginx-gateway
   namespace: default
 spec:
   selector:
-    istio: ingressgateway
-  servers:
+    istio: ingressgateway # указывает, к какому именно физическому поду-шлюзу применить эту настройку
+  servers: # описание правил приема трафика
     - port:
         number: 80
         name: http
